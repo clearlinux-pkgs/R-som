@@ -4,14 +4,14 @@
 #
 Name     : R-som
 Version  : 0.3.5.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/som_0.3-5.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/som_0.3-5.1.tar.gz
 Summary  : Self-Organizing Map
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-som-lib
-BuildRequires : clr-R-helpers
+Requires: R-som-lib = %{version}-%{release}
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -32,11 +32,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521301833
+export SOURCE_DATE_EPOCH=1552797845
 
 %install
+export SOURCE_DATE_EPOCH=1552797845
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521301833
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library som|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  som || :
 
 
 %files
@@ -98,7 +97,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/som/help/som.rdx
 /usr/lib64/R/library/som/html/00Index.html
 /usr/lib64/R/library/som/html/R.css
-/usr/lib64/R/library/som/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
