@@ -7,7 +7,7 @@
 #
 Name     : R-som
 Version  : 0.3.5.2
-Release  : 48
+Release  : 49
 URL      : https://cran.r-project.org/src/contrib/som_0.3-5.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/som_0.3-5.2.tar.gz
 Summary  : Self-Organizing Map
